@@ -1,0 +1,11 @@
+
+# ----- P F E T C H ----- #
+# ----------------------- #
+
+
+export PF_ASCII="catppuccin"
+export PF_INFO="ascii title os uptime pkgs"
+export PF_SEP=""
+export PF_ALIGN="8"
+export PF_COL1=9
+export PF_COL3=5

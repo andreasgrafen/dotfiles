@@ -1,0 +1,97 @@
+
+# ----- A L I A S E S ----- #
+# ------------------------- #
+
+
+# ----- general ----- #
+
+alias _="sudo"
+alias please="sudo"
+
+alias ping='ping -c 5'
+
+alias reload='exec ${SHELL} -l'
+alias hg='history 100 | grep'
+
+alias c='clear && echo -e "\e[31m●\e[0m \e[33m●\e[0m \e[32m●\e[0m \e[36m●\e[0m \e[34m●\e[0m \e[35m●\e[0m" && echo ""'
+alias ca='cd ~; clear && echo -e "\e[31m●\e[0m \e[33m●\e[0m \e[32m●\e[0m \e[36m●\e[0m \e[34m●\e[0m \e[35m●\e[0m" && echo "\n" && pfetch && echo ""'
+
+alias mkdir='mkdir -pv'
+alias rr="rm -rf"
+alias rtmp='rm -rf ~/tmp; mkdir ~/tmp'
+
+alias vi='nvim'
+alias vim='nvim'
+
+alias bat='bat --theme="Catppuccin-macchiato"'
+
+
+
+# ----- directory listing/traversal ----- #
+
+# LS_COLORS=$(is-supported "ls --color" --color -G)
+# LS_TIMESTYLEISO=$(is-supported "ls --time-style=long-iso" --time-style=long-iso)
+# LS_GROUPDIRSFIRST=$(is-supported "ls --group-directories-first" --group-directories-first)
+# alias l="ls -lhA $LS_COLORS $LS_TIMESTYLEISO $LS_GROUPDIRSFIRST"
+# alias ll="ls -lA $LS_COLORS"
+# alias lt="ls -lhAtr $LS_COLORS $LS_TIMESTYLEISO $LS_GROUPDIRSFIRST"
+# alias ld="ls -ld $LS_COLORS */"
+# unset LS_COLORS LS_TIMESTYLEISO LS_GROUPDIRSFIRST
+
+alias l="exa -lah --no-time --icons --git --group-directories-first --no-permissions"
+alias ld="exa -lahD --no-time --icons --git --no-permissions --no-filesize"
+alias lg="EXA_ICON_SPACING=1 COLUMNS=60 exa -a --grid --icons"
+
+alias ~='cd ~'
+alias ..='cd ..'
+alias cs='cd'
+
+alias tree="tree -A"
+alias treed="tree -d"
+alias tree1="tree -d -L 1"
+alias tree2="tree -d -L 2"
+
+
+
+# ----- npm ----- #
+
+alias nup="npm update"
+alias nri="rm -r node_modules && npm install"
+alias ncd="npm-check -su"
+
+
+
+# ----- git ----- #
+
+alias clone='git clone $1'
+alias gch='history | grep --color="auto" "git commit"'
+
+
+
+# ----- network ----- #
+
+alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
+alias ipl="ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1'"
+
+# Request using GET, POST, etc. method
+for METHOD in GET HEAD POST PUT DELETE TRACE OPTIONS; do
+  alias "$METHOD"="lwp-request -m '$METHOD'"
+done
+unset METHOD
+
+
+
+# ----- misc ----- #
+
+alias quit="exit"
+alias week="date +%V"
+alias speedtest="wget -O /dev/null http://speed.transip.nl/100mb.bin"
+alias wttr="curl https://wttr.in/leipzig?0"
+
+
+
+# ----- kitty specific ----- #
+
+alias icat="kitty +kitten icat --align left"
+alias ssh="kitty +kitten ssh"
+alias diff="kitty +kitten diff"
