@@ -1,0 +1,44 @@
+[user]
+  name = Andreas Grafen
+  email = andreas@grafen.info
+  username = andreasgrafen
+  signingkey = 3EDA14A9710B8A8A
+
+[github]
+  user = andreasgrafen
+
+[gpg]
+  program = /usr/local/bin/gpg
+
+[core]
+  editor = nvim
+  excludesfile = ~/.config/git/ignore
+
+[init]
+  defaultBranch = main
+
+[commit]
+  gpgsign = true
+
+[push]
+  autoSetupRemote = true
+
+[alias]
+  amend = commit --amend --reuse-message=HEAD
+  st = status --short
+  ic = !git init && git commit --allow-empty -m \"init repo\" -m \"This initialising commit is intentionally left blank.\"
+  purge = !git reset --hard && git clean -f
+
+[diff]
+  tool = kitty
+  guitool = kitty.gui
+
+[difftool]
+  prompt = false
+  trustExitCode = true
+
+[difftool "kitty"]
+  cmd = kitty +kitten diff $LOCAL $REMOTE
+
+[difftool "kitty.gui"]
+  cmd = kitty kitty +kitten diff $LOCAL $REMOTE
