@@ -1,0 +1,14 @@
+#!/bin/bash
+
+NAME=$(gum input --placeholder "Name your new repository.")
+DESCRIPTION=$(gum write --placeholder "Set a repository description.")
+
+CHOSEN_FLAGS=$(gum choose --cursor-prefix="[•] " --selected-prefix="[x] " --unselected-prefix="[ ] " --no-limit --selected=public disable-issues disable-wiki public private)
+
+FLAGS=""
+
+for CHOSEN_FLAG in $CHOSEN_FLAGS; do
+  FLAGS="${FLAGS} --$CHOSEN_FLAG"
+done
+
+gh repo create $NAME --description="$DESCRIPTION" $FLAGS --source=.
