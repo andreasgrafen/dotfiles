@@ -1,0 +1,35 @@
+#!/usr/bin/env python3
+
+import string
+import random
+import sys
+
+
+silent = False
+
+if len(sys.argv) >= 2:
+    if str(sys.argv[1]) == '-s':
+        silent = True
+
+
+
+if silent == False:
+    length      = int(input('Password length: ') or '30')
+    symbolState = input('Use special characters? [Y/n] ') or 'y'
+
+else:
+    length      = 30
+    symbolState = 'y'
+
+
+
+chars   = string.ascii_letters + string.digits
+symbols = '#@!?_-+$&'
+
+if (symbolState.lower() == 'y' or symbolState.lower() == 'yes'):
+    chars = chars + symbols
+
+
+
+passw = ''.join(random.choice(chars) for x in range(length))
+print(passw)
