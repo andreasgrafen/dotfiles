@@ -24,10 +24,11 @@
   autoSetupRemote = true
 
 [alias]
-  amend = commit --amend --reuse-message=HEAD
+  amend = commit --amend --no-edit
+  purge = !git reset --hard && git clean -f
   st = status --short
   ic = !git init && git commit --allow-empty -m \"init repo\" -m \"This initialising commit is intentionally left blank.\"
-  purge = !git reset --hard && git clean -f
+  yolo = !git commit -m \"chore: $(curl -s whatthecommit.com/index.txt)\"
 
 [diff]
   tool = kitty
