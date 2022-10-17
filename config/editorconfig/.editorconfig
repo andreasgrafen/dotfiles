@@ -25,8 +25,12 @@ indent_size = 4
 [*.rs]
 indent_size = 4
 
-# documentation, utils
-[*.{md,mdx,diff}]
+# documentation
+[*.{md,mdx}]
+indent_size = 4
+
+# utils
+[*.diff]
 trim_trailing_whitespace = false
 
 # windows shell scripts
